@@ -3,17 +3,24 @@ import React from "react";
 import CustomButton from "../components/CustomButton";
 
 export default function GameStartScreen() {
+  function resetHandler() {}
+  function confirmHandler() {}
+
   return (
     <View style={styles.container}>
       <Text>Sayı tahmin uygulaması</Text>
       <View style={styles.card}>
-        <TextInput style={styles.input} keyboardType="number-pad" />
+        <TextInput
+          style={styles.input}
+          keyboardType="number-pad"
+          maxLength={2}
+        />
         <View style={styles.buttonsContainer}>
           <View style={styles.buttonContainer}>
-            <CustomButton>Temizle</CustomButton>
+            <CustomButton onPress={resetHandler}>Temizle</CustomButton>
           </View>
           <View style={styles.buttonContainer}>
-            <CustomButton>Onayla</CustomButton>
+            <CustomButton onPress={confirmHandler}>Onayla</CustomButton>
           </View>
         </View>
       </View>
@@ -50,10 +57,10 @@ const styles = StyleSheet.create({
     fontSize: 35,
     fontWeight: "bold",
   },
-  buttonsContainer:{
-    flexDirection:"row"
+  buttonsContainer: {
+    flexDirection: "row",
   },
-  buttonContainer:{
-    flex:1
-  }
+  buttonContainer: {
+    flex: 1,
+  },
 });
