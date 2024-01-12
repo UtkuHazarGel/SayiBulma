@@ -1,10 +1,14 @@
 import { StyleSheet, Text, TextInput, View } from "react-native";
-import React from "react";
+import React, { useState } from "react";
 import CustomButton from "../components/CustomButton";
 
 export default function GameStartScreen() {
+  const [enteredNumber, setEnteredNumber] = useState("");
   function resetHandler() {}
   function confirmHandler() {}
+  function numberHandler(text) {
+    setEnteredNumber()
+  }
 
   return (
     <View style={styles.container}>
@@ -14,6 +18,7 @@ export default function GameStartScreen() {
           style={styles.input}
           keyboardType="number-pad"
           maxLength={2}
+          onChangeText={numberHandler}
         />
         <View style={styles.buttonsContainer}>
           <View style={styles.buttonContainer}>
