@@ -13,16 +13,14 @@ export default function App() {
 
   let screen = <GameStartScreen onSendNumber={sendedNumberHandler} />;
   if (userNumber) {
-    screen = <GameScreen />;
+    screen = <GameScreen userNumber={userNumber} />;
   }
   return (
     <LinearGradient
       style={styles.container}
       colors={["rgba(0,100,250,0.8)", "transparent"]}
     >
-     
-        {screen}
-      
+      {screen}
     </LinearGradient>
   );
 }

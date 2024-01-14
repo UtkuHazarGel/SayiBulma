@@ -3,7 +3,7 @@ import React, { useState } from "react";
 import CustomButton from "../components/CustomButton";
 import Title from "../components/Title";
 
-export default function GameStartScreen({onSendNumber}) {
+export default function GameStartScreen({ onSendNumber }) {
   const [enteredNumber, setEnteredNumber] = useState("");
   function resetHandler() {
     setEnteredNumber("");
@@ -16,10 +16,9 @@ export default function GameStartScreen({onSendNumber}) {
       ]);
       return;
     }
-    onSendNumber(chosenNumber)
+    onSendNumber(chosenNumber);
   }
   function numberHandler(text) {
-    
     setEnteredNumber(text);
   }
 
