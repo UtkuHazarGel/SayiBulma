@@ -16,6 +16,8 @@ const styles = StyleSheet.create({
         textAlign:"center",
         padding:15,
         marginBottom:15,
-        borderRadius:20
+        borderRadius:20,
+        color:"white",
+        fontSize:25
     }
 })

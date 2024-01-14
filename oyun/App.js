@@ -20,13 +20,9 @@ export default function App() {
       style={styles.container}
       colors={["rgba(0,100,250,0.8)", "transparent"]}
     >
-      <ImageBackground
-        style={styles.container}
-        source={require("./assets/back.png")}
-        imageStyle={styles.backImage}
-      >
+     
         {screen}
-      </ImageBackground>
+      
     </LinearGradient>
   );
 }

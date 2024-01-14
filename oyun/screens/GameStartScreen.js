@@ -1,6 +1,7 @@
 import { StyleSheet, Text, TextInput, View, Alert } from "react-native";
 import React, { useState } from "react";
 import CustomButton from "../components/CustomButton";
+import Title from "../components/Title";
 
 export default function GameStartScreen({onSendNumber}) {
   const [enteredNumber, setEnteredNumber] = useState("");
@@ -24,7 +25,7 @@ export default function GameStartScreen({onSendNumber}) {
 
   return (
     <View style={styles.container}>
-      <Text>Sayı tahmin uygulaması</Text>
+      <Title>Sayı tahmin uygulaması</Title>
       <View style={styles.card}>
         <TextInput
           style={styles.input}
