@@ -24,7 +24,9 @@ export default function App() {
         style={styles.container}
         source={require("./assets/back.png")}
         imageStyle={styles.backImage}
-      ></ImageBackground>
+      >
+        {screen}
+      </ImageBackground>
     </LinearGradient>
   );
 }
