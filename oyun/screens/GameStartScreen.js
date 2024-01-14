@@ -1,13 +1,23 @@
-import { StyleSheet, Text, TextInput, View } from "react-native";
+import { StyleSheet, Text, TextInput, View, Alert } from "react-native";
 import React, { useState } from "react";
 import CustomButton from "../components/CustomButton";
 
 export default function GameStartScreen() {
   const [enteredNumber, setEnteredNumber] = useState("");
-  function resetHandler() {}
-  function confirmHandler() {}
+  function resetHandler() {
+    setEnteredNumber("");
+  }
+  function confirmHandler() {
+    const chosenNumber = parseInt(enteredNumber);
+    if (isNaN(chosenNumber) || chosenNumber <= 0 || chosenNumber >= 99) {
+      Alert.alert("Geçersiz Sayı!", "Sayı 0 ile 100 arasında olmalıdır", [
+        { text: "Tamam", style: "destructive", onPress: resetHandler },
+      ]);
+    }
+  }
   function numberHandler(text) {
-    setEnteredNumber()
+    console.log(text);
+    setEnteredNumber(text);
   }
 
   return (
@@ -19,6 +29,7 @@ export default function GameStartScreen() {
           keyboardType="number-pad"
           maxLength={2}
           onChangeText={numberHandler}
+          value={enteredNumber}
         />
         <View style={styles.buttonsContainer}>
           <View style={styles.buttonContainer}>
