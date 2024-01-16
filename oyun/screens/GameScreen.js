@@ -61,18 +61,24 @@ export default function GameScreen({ userNumber, onGameOver }) {
       <View style={styles.card}>
         <Text style={styles.title}>Altında mı? Üstüne mi?</Text>
         <View style={styles.buttonsContainer}>
+        
+        <View style={{marginHorizontal:15}}>
           <CustomButton onPress={nextGuessHandler.bind(this, "lower")}>
             <AntDesign name="minus" size={24} color="white" />
           </CustomButton>
+          </View>
+          <View style={{marginHorizontal:15}}>
           <CustomButton onPress={nextGuessHandler.bind(this, "greater")}>
             <AntDesign name="plus" size={24} color="white" />
           </CustomButton>
+          </View>
         </View>
       </View>
       <View style={styles.listContainer}>
         <FlatList
           data={guessCount}
-          keyExtractor={(itemData)=>itemData}
+          keyExtractor={(itemData) => itemData}
+          scrollEnabled={true}
           renderItem={(itemData) => (
             <ComputerGuess
               roundNumber={guessCount.length - itemData.index}
@@ -92,10 +98,11 @@ const styles = StyleSheet.create({
   },
   buttonsContainer: {
     flexDirection: "row",
+    
   },
   card: {
     backgroundColor: "orange",
-    padding: 16,
+    padding: 25,
     marginTop: 20,
     elevation: 4,
     shadowColor: "black",
@@ -105,14 +112,15 @@ const styles = StyleSheet.create({
     borderRadius: 20,
     alignItems: "center",
     justifyContent: "center",
+  
   },
   title: {
     color: "white",
     fontSize: 24,
     marginBottom: 15,
   },
-  listContainer:{
-    flex:1,
-    marginTop:10
-  }
+  listContainer: {
+    flex: 1,
+    marginTop: 10,
+  },
 });
