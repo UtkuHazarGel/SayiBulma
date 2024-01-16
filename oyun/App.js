@@ -9,21 +9,27 @@ import { useState } from "react";
 export default function App() {
   const [gameIsOver, setGameIsOver] = useState(true);
   const [userNumber, setUserNumber] = useState(null);
+  const [guessCount, setGuessCount] = useState(0);
   function sendedNumberHandler(sendedNumber) {
     setUserNumber(sendedNumber);
     setGameIsOver(false);
   }
-  
-  function gameOverHandler() {
-    setGameIsOver(true)
+
+  function gameOverHandler(numberofGuess) {
+    setGameIsOver(true);
+    setGuessCount(numberofGuess);
   }
   let screen = <GameStartScreen onSendNumber={sendedNumberHandler} />;
   if (userNumber) {
-    screen = <GameScreen userNumber={userNumber} onGameOver={gameOverHandler} />;
+    screen = (
+      <GameScreen userNumber={userNumber} onGameOver={gameOverHandler} />
+    );
   }
 
   if (gameIsOver && userNumber) {
-    screen = <GameOverScreen />;
+    screen = (
+      <GameOverScreen userNumber={userNumber} roundsNumber={guessCount-1} />
+    );
   }
   return (
     <LinearGradient

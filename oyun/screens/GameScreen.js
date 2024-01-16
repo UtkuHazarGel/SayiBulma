@@ -10,10 +10,10 @@ let maxNumber = 100;
 export default function GameScreen({ userNumber, onGameOver }) {
   const initialGuess = generateNumber(1, 100, userNumber);
   const [currentGuess, setCurrentGuess] = useState(initialGuess);
-
+  const [guessCount, setGuessCount] = useState([initialGuess]);
   useEffect(() => {
     if (currentGuess === userNumber) {
-      onGameOver();
+      onGameOver(guessCount.length);
     }
   }, [currentGuess, userNumber, onGameOver]);
 
@@ -26,6 +26,10 @@ export default function GameScreen({ userNumber, onGameOver }) {
       return randomNumber;
     }
   }
+  useEffect(()=>{
+      minNumber = 1;
+      maxNumber = 100;
+  },[])
 
   function nextGuessHandler(direction) {
     if (
@@ -47,6 +51,7 @@ export default function GameScreen({ userNumber, onGameOver }) {
     }
     const newRandomNumber = generateNumber(minNumber, maxNumber, currentGuess);
     setCurrentGuess(newRandomNumber);
+    setGuessCount((prevGuess) => [newRandomNumber, ...prevGuess]);
   }
   return (
     <View style={styles.container}>
