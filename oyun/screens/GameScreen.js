@@ -69,7 +69,7 @@ export default function GameScreen({ userNumber, onGameOver }) {
           </CustomButton>
         </View>
       </View>
-      <View>
+      <View style={styles.listContainer}>
         <FlatList
           data={guessCount}
           keyExtractor={(itemData)=>itemData}
@@ -111,4 +111,8 @@ const styles = StyleSheet.create({
     fontSize: 24,
     marginBottom: 15,
   },
+  listContainer:{
+    flex:1,
+    marginTop:10
+  }
 });
